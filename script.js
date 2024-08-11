@@ -5,6 +5,7 @@ let gojo = document.querySelector(".gojo");
 let img = document.getElementById("gojo-1");
 let sound_points = new Audio("sound effects/point.mp3");
 let sound_die = new Audio("sound effects/yowai-mo.mp3");
+let gojo_sound = new Audio("sound effects/gojo-hora-hora.mp3");
 
 let gojo_props = gojo.getBoundingClientRect();
 
@@ -70,8 +71,9 @@ function play() {
         ) {
           game_state = "End";
           sound_die.play();
+          gojo_sound.pause();
           message.innerHTML =
-            "Game Over".fontcolor("red") + "<br>Press Enter To Restart";
+            "Game Over".fontcolor("red") +   "<br> Weak Loser".fontcolor("red").fontsize('4rem') + "<br>Press Enter To Restart";
           message.classList.add("messageStyle");
           img.style.display = "none";
           return;
@@ -100,12 +102,14 @@ function play() {
       if (e.key === "ArrowUp" || e.key === " ") {
         img.src = "images/gojo3.png";
         gojo_dy = -7.6;
+        gojo_sound.play();
       }
     });
 
     document.addEventListener("keyup", (e) => {
       if (e.key === "ArrowUp" || e.key === " ") {
         img.src = "images/gojo1.png";
+        // gojo_sound.play();
       }
     });
     
