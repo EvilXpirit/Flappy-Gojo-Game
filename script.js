@@ -160,8 +160,8 @@ function play() {
         return arr[randomIndex];
       }
 
-      let curse_width = window.innerWidth <= 480 ? 55 : 14; // 60vw for mobile, 14vw for larger screens
-      let curse_height = window.innerWidth <= 480 ? 75 : 70;
+      let curse_width = window.innerWidth <= 480 ? 60 : 14; // 60vw for mobile, 14vw for larger screens
+      let curse_height = window.innerWidth <= 480 ? 80 : 70;
 
       // Top pipe
       let curse_sprite_inv = document.createElement("div");
