@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.background{
+    height: 100vh;
+    width: 100vw;
+    background: url('images/night.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.gojo{
+    height: 100px;
+    width: 70px;
+    position: fixed;
+    top: 40vh;
+    left: 20vw;
+    z-index: 100;
+    /* transform: scale(-1, 1); */
+}
+
+.curse{
+    position: fixed;
+    top: 55vh;
+    left: 100vw;
+    height: 70vh;
+    width: 14vw; 
+    /* z-index: 90; */
+}
+
+.message{
+    position: absolute;
+    z-index: 10;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0, 0, 0);
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.messageStyle{
+    background: white;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.267) 0px 3px 8px;
+    border-radius: 5%; 
+}
+
+.score {
+	position: fixed;
+	z-index: 10;
+	height: 10vh;
+	font-size: 10vh;
+	font-weight: 100;
+	color: white;
+	top: 0;
+	left: 0;
+	margin: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.score_val {
+	color: gold;
+	font-weight: bold;
+}
+
+@media only screen and (max-width: 480px) {
+    .score {
+        font-size: 8vh;
+    }
+
+    .curse {
+        width: 40vw; /* Increase the width for better visibility */
+        height: 60vh; /* Increase height to make the curse images more prominent */
+        background-size: contain;
+    }
+
+    .gojo {
+        width: 20vw; /* Keep Gojo smaller for better control */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .curse {
+        width: 30vw; /* Moderate size adjustment for tablets */
+        height: 70vh;
+        background-size: contain;
+    }
+}
+
