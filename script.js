@@ -22,7 +22,19 @@ img.style.display = "none";
 message.classList.add("messageStyle");
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && game_state !== "Play") {
+    if (e.key === "Enter" && game_state !== "Play") {
+      resetGame();
+    }
+  });
+  
+  // Add touch event listener for mobile devices
+  document.addEventListener("touchstart", (e) => {
+    if (game_state !== "Play") {
+      resetGame();
+    }
+  });
+  
+  function resetGame() {
     document.querySelectorAll(".curse").forEach((e) => {
       e.remove();
     });
@@ -35,7 +47,8 @@ document.addEventListener("keydown", (e) => {
     message.classList.remove("messageStyle");
     play();
   }
-});
+  
+
 
 function play() {
   function move() {
@@ -96,13 +109,13 @@ function play() {
       }
     });
     
-    document.addEventListener("touchstart", (e) => {
+    document.addEventListener("touchstart", () => {
         img.src = "images/gojo3.png";
         gojo_dy = -7.6;
       });
     
       // Event listener for touchend (Mobile)
-      document.addEventListener("touchend", (e) => {
+      document.addEventListener("touchend", () => {
         img.src = "images/gojo1.png";
       });
 
