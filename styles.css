@@ -70,6 +70,25 @@
 	font-weight: bold;
 }
 
+footer {
+    color: #ffffff85;
+    font-size: 13px;
+    font-weight: 200;
+    position: fixed;
+    bottom: 0px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  footer a {
+    color: #ffffff85;
+    text-decoration: none;
+  }
+  footer a:hover {
+    color: rgba(156, 156, 255, 0.612);
+  }
+
 @media only screen and (max-width: 480px) {
     .score {
         font-size: 8vh;
@@ -94,4 +113,3 @@
         background-size: contain;
     }
 }
-
