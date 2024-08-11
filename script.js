@@ -116,6 +116,7 @@ function play() {
     document.addEventListener("touchstart", () => {
         img.src = "images/gojo3.png";
         gojo_dy = -7.6;
+        gojo_sound.play();
       });
     
       // Event listener for touchend (Mobile)
