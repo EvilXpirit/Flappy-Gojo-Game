@@ -1,41 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Timmana&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Timmana", sans-serif;
     font-weight: 400;
     font-style: normal;
-  
+}
 
-.background{
+.background {
     height: 100vh;
     width: 100vw;
     background: url('images/night.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
-.gojo{
+.gojo {
     height: 100px;
     width: 70px;
     position: fixed;
     top: 40vh;
     left: 20vw;
     z-index: 100;
-    /* transform: scale(-1, 1); */
 }
 
-.curse{
+.curse {
     position: fixed;
     top: 55vh;
     left: 100vw;
     height: 70vh;
-    width: 14vw; 
-    /* z-index: 90; */
+    width: 14vw;
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+    transition: filter 0.2s;
 }
 
-.message{
+.curse:hover {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+}
+
+.message {
     position: absolute;
     z-index: 10;
     font-family: "Timmana", sans-serif;
@@ -46,28 +50,29 @@
     text-align: center;
 }
 
-.messageStyle{
+.messageStyle {
     background: rgb(255, 255, 255);
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.267) 0px 3px 8px;
-    border-radius: 5%; 
+    border-radius: 5%;
 }
 
 .score {
-	position: fixed;
-	z-index: 10;
-	height: 10vh;
-	font-size: 10vh;
-	font-weight: 100;
-	color: white;
-	top: 0;
-	left: 0;
-	margin: 10px;
+    position: fixed;
+    z-index: 10;
+    height: 10vh;
+    font-size: 10vh;
+    font-weight: 100;
+    color: white;
+    top: 0;
+    left: 0;
+    margin: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .score_val {
-	color: gold;
-	font-weight: bold;
+    color: gold;
+    font-weight: bold;
 }
 
 footer {
@@ -79,15 +84,215 @@ footer {
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
-  }
+    z-index: 10;
+}
 
-  footer a {
+footer a {
     color: #ffffff85;
     text-decoration: none;
-  }
-  footer a:hover {
+}
+
+footer a:hover {
     color: rgba(156, 156, 255, 0.612);
-  }
+}
+
+/* Game UI - Fixed to overlay game properly */
+#game-ui {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Menu Screen */
+.menu-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.menu-screen h1 {
+    font-size: 48px;
+    text-shadow: 0 0 10px #0096FF, 0 0 20px #0096FF;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.high-score {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.start-btn {
+    background-color: #0096FF;
+    border: none;
+    padding: 15px 30px;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px #0096FF;
+    transition: all 0.2s;
+    margin-bottom: 20px;
+    pointer-events: auto;
+    font-family: "Timmana", sans-serif;
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #0096FF;
+}
+
+.controls {
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* Game Over Screen */
+.game-over-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    pointer-events: auto;
+}
+
+.game-over-screen h1 {
+    font-size: 48px;
+    color: red;
+    text-shadow: 0 0 10px red, 0 0 20px red;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.game-over-screen h2 {
+    font-size: 36px;
+    color: red;
+    margin-bottom: 30px;
+}
+
+.final-score {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.new-high-score {
+    font-size: 28px;
+    color: gold;
+    text-shadow: 0 0 10px gold;
+    margin-bottom: 40px;
+    display: none;
+}
+
+.restart-btn {
+    background-color: #0096FF;
+    border: none;
+    padding: 15px 30px;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+    pointer-events: auto;
+    font-family: "Timmana", sans-serif;
+}
+
+.menu-btn {
+    background-color: transparent;
+    border: 2px solid #0096FF;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    pointer-events: auto;
+    font-family: "Timmana", sans-serif;
+}
+
+/* Mute button - FIXED: Moved to right side to avoid score overlap */
+.mute-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Changed from left to right */
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    pointer-events: auto;
+    z-index: 1100;
+}
+
+/* Button hover effects */
+.start-btn:hover, .restart-btn:hover, .menu-btn:hover, .mute-btn:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.menu-screen, .game-over-screen {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive design for mobile */
+@media only screen and (max-width: 768px) {
+    .curse {
+        width: 30vw;
+        height: 70vh;
+        background-size: contain;
+    }
+    
+    .menu-screen h1, .game-over-screen h1 {
+        font-size: 36px;
+    }
+    
+    .start-btn, .restart-btn, .menu-btn {
+        padding: 12px 24px;
+        font-size: 20px;
+    }
+}
 
 @media only screen and (max-width: 480px) {
     .score {
@@ -95,21 +300,22 @@ footer {
     }
 
     .curse {
-        width: 40vw; /* Increase the width for better visibility */
-        height: 60vh; /* Increase height to make the curse images more prominent */
+        width: 40vw;
+        height: 60vh;
         background-size: contain;
     }
 
     .gojo {
-        width: 20vw; /* Keep Gojo smaller for better control */
-        height: auto; /* Maintain aspect ratio */
+        width: 20vw;
+        height: auto;
     }
-}
-
-@media only screen and (max-width: 768px) {
-    .curse {
-        width: 30vw; /* Moderate size adjustment for tablets */
-        height: 70vh;
-        background-size: contain;
+    
+    .menu-screen h1, .game-over-screen h1 {
+        font-size: 28px;
+    }
+    
+    .start-btn, .restart-btn, .menu-btn {
+        padding: 10px 20px;
+        font-size: 16px;
     }
 }

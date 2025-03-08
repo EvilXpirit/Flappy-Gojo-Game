@@ -4,12 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Gojo</title>
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="background"></div>
     <img src="images/gojo1.png" alt="invalid-img" class="gojo" id="gojo-1">
+    
+    <!-- Main Menu -->
+    <!-- <div class="menu-screen" id="menu-screen">
+        <h1>Jujutsu Kaisen<br>Flappy Gojo</h1>
+        <div class="high-score" id="high-score">High Score: 0</div>
+        <button class="start-btn" id="start-btn">START GAME</button>
+        <div class="controls">
+            CONTROLS<br>Press SPACE or UP ARROW to fly<br>Tap screen on mobile
+        </div>
+    </div> -->
+    
+    <!-- Game Over Screen -->
+    <!-- <div class="game-over-screen" id="game-over-screen">
+        <h1>GAME OVER</h1>
+        <h2>Weak Loser</h2>
+        <div class="final-score" id="final-score">Your Score: 0</div>
+        <div class="new-high-score" id="new-high-score">NEW HIGH SCORE!</div>
+        <button class="restart-btn" id="restart-btn">PLAY AGAIN</button>
+        <button class="menu-btn" id="menu-btn">MAIN MENU</button>
+    </div> -->
+    
+    <!-- Original Message Element (will be hidden/shown as needed) -->
     <div class="message">
         <h2>
             Welcome to the Game
@@ -24,12 +45,25 @@
             Arrow Up or Space to Control
         </p>
     </div>
+    
+    <!-- Score Display -->
     <div class="score">
         <span class="score_title"></span>
         <span class="score_val"></span>
     </div>
+    
+    <!-- In-Game UI Elements -->
+    <div class="game-ui" id="game-ui">
+        <div class="score-display" id="score-display">
+            Score: <span id="current-score">0</span>
+        </div>
+        <button class="mute-btn" id="mute-btn">🔊</button>
+    </div>
+    
     <footer>
         By <a href='https://github.com/EvilXpirit' target='blank'>Evilxpirit</a>
     </footer>
+    
+    <script src="script.js" defer></script>
 </body>
 </html>
