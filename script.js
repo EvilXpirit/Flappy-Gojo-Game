@@ -51,7 +51,7 @@ function createGameUI() {
     <div class="high-score">High Score: ${highScore}</div>
     <button class="start-btn" id="start-btn">START GAME</button>
     <div class="controls">
-      CONTROLS<br>Press SPACE or UP ARROW to fly<br>Tap screen on mobile
+      CONTROLS<br>Press SPACE or UP ARROW or W to fly<br>Tap screen on mobile
     </div>
   `;
   gameUI.appendChild(menuScreen);
@@ -182,7 +182,7 @@ document.addEventListener("keydown", (e) => {
     resetGame();
   }
   
-  if ((e.key === "ArrowUp" || e.key === " ") && game_state === "Play" && !jumpPressed) {
+  if ((e.key === "ArrowUp" || e.key === " " || e.key === "w") && game_state === "Play" && !jumpPressed) {
     jumpPressed = true;
     img.src = "images/gojo3.png";
     gojo_dy = jump_force / 60; // Initial jump velocity
@@ -191,11 +191,12 @@ document.addEventListener("keydown", (e) => {
 });
 
 document.addEventListener("keyup", (e) => {
-  if (e.key === "ArrowUp" || e.key === " ") {
+  if (e.key === "ArrowUp" || e.key === " " || e.key === "w") {
     jumpPressed = false;
     img.src = "images/gojo1.png";
   }
 });
+
 
 // Touch event listeners for mobile
 document.addEventListener("touchstart", (e) => {
